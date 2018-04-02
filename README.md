@@ -1,6 +1,8 @@
 Micro & REST API Boilerplate
 ==================================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/khanghuynh92/micro-rest-boilerplate.svg)](https://greenkeeper.io/)
+
 This is a straightforward boilerplate for building REST APIs with Micro and Mongoose.
 
 - Micro support via [micro](https://github.com/zyedidia/micro)
