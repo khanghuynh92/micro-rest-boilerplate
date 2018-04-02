@@ -27,7 +27,24 @@ yarn dev
 # Start production server:
 yarn serve
 ```
+Docker Support
+------
+```sh
+cd micro-rest-boilerplate
 
+# Build your docker
+docker build -t micro/api-service .
+#            ^      ^           ^
+#          tag  tag name      Dockerfile location
+
+# run your docker
+docker run -p 80:80 micro/api-service
+#                 ^            ^
+#          bind the port    container tag
+#          to your host
+#          machine port   
+
+```
 
 License
 -------
