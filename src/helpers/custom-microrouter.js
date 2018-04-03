@@ -1,7 +1,8 @@
 const { send } = require('micro');
 const { withNamespace, router, get, post, put, del } = require('microrouter');
-
+const cors = require('micro-cors')()
 const apiV1 = withNamespace('/api/v1');
+
 
 const wrap = cb => (path, fn) => {
   const newFn = (req, res) => {
@@ -10,7 +11,7 @@ const wrap = cb => (path, fn) => {
     return fn(req, res);
   };
 
-  return apiV1(cb(path, newFn));
+  return cors(apiV1(cb(path, newFn)));
 };
 
 module.exports = {

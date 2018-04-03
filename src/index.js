@@ -2,7 +2,6 @@ require('dotenv').config();
 
 const { NOT_FOUND } = require('http-status-codes');
 const { router, get, post, put, del } = require('./helpers/custom-microrouter');
-const cors = require('micro-cors')();
 
 const topicController = require('./topic.controller');
 const topicMiddleware = require('./topic.middleware');
@@ -15,11 +14,11 @@ const error404 = (req, res) => {
 };
 
 module.exports = router(
-  get('/topics', cors(topicController.getList)),
-  post('/topics', cors(topicMiddleware.validate(topicController.create))),
-  get('/topics/:id', cors(topicController.getDetails)),
-  put('/topics/:id', cors(topicMiddleware.validate(topicController.update))),
-  del('/topics/:id', cors(topicController.remove)),
+  get('/topics', topicController.getList),
+  post('/topics', topicMiddleware.validate(topicController.create)),
+  get('/topics/:id', topicController.getDetails),
+  put('/topics/:id', topicMiddleware.validate(topicController.update)),
+  del('/topics/:id', topicController.remove),
 
   // not found
   get('/*', error404),

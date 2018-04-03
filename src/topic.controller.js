@@ -158,7 +158,7 @@ const remove = async (req, res) => {
     });
   }
 
-  return res.send(OK, 'Ok');
+  return res.send(OK, topic);
 };
 
 module.exports = {
